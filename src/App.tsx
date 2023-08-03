@@ -143,6 +143,8 @@ export default function App() {
           <Space h="sm" />
           <Group position='center'>
               <Button 
+                m="auto"
+                size="sm"
                 onClick={printPDF} 
                 variant="white" 
                 color="dark">
