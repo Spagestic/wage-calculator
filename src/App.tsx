@@ -2,7 +2,7 @@
 // import './App.css';
 import React, {useState, useEffect} from 'react';
 import { MantineProvider, 
-         Text, Space, Center, Divider,
+         Title, Space, Center, Divider,
          NumberInput, Button,
          Modal, Group
         } from '@mantine/core';
@@ -50,7 +50,11 @@ export default function App() {
     <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
       
       <Space h="sm" />
-      <Text align="center">Long Service Payment Calculator</Text>
+      <Title 
+      align="center"
+      fz="lg"
+      fw={700}
+      >Long Service Payment Calculator</Title>
       <Divider my="sm" />
 
       <DatePickerInput
