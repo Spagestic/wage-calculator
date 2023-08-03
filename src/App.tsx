@@ -76,6 +76,7 @@ export default function App() {
         placeholder="Pick date"
         value={startDate}
         onChange={setStartDate}
+        size="md"
         mx="auto"
         miw={250}
       />
@@ -89,6 +90,7 @@ export default function App() {
         placeholder="Pick date"
         value={endDate}
         onChange={setEndDate}
+        size="md"
         mx="auto"
         miw={250}
       />
@@ -109,6 +111,7 @@ export default function App() {
             ? `${value}`.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
             : '0'
         }
+        size="md"
         mx="auto"
         miw={250}
       />
@@ -144,7 +147,7 @@ export default function App() {
           <Group position='center'>
               <Button 
                 m="auto"
-                size="sm"
+                size="md"
                 onClick={printPDF} 
                 variant="white" 
                 color="dark">
