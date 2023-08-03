@@ -119,6 +119,7 @@ export default function App() {
         <Button 
           m="auto"
           size="md"
+          radius="md"
           onClick={open} 
           variant="gradient" 
           gradient={{ from: 'indigo', to: 'cyan' }}>
@@ -148,6 +149,7 @@ export default function App() {
               <Button 
                 m="auto"
                 size="md"
+                radius="md"
                 onClick={printPDF} 
                 variant="white" 
                 color="dark">
