@@ -3,11 +3,12 @@
 import React, {useState, useEffect} from 'react';
 import { MantineProvider, 
          Title, Space, Center, Divider,
-         NumberInput, Button,
+         NumberInput, Button, Flex,
          Modal, Group
         } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { DatePickerInput } from '@mantine/dates';
+import { IconCalendar } from '@tabler/icons-react';
 // import { IconX } from '@tabler/icons-react';
 import jsPDF from 'jspdf';
 
@@ -57,7 +58,17 @@ export default function App() {
       >Long Service Payment Calculator</Title>
       <Divider my="sm" />
 
+      <Flex
+        mih={50}
+        // bg="rgba(0, 0, 0, .3)"
+        gap="lg"
+        justify="center"
+        align="center"
+        direction="column"
+        wrap="wrap"
+      >
       <DatePickerInput
+        icon={<IconCalendar size="1.1rem" stroke={1.5} />}
         clearable
         // withAsterisk
         dropdownType="modal"
@@ -70,6 +81,7 @@ export default function App() {
       />
 
       <DatePickerInput
+        icon={<IconCalendar size="1.1rem" stroke={1.5} />}
         clearable
         // withAsterisk
         dropdownType="modal"
@@ -81,7 +93,7 @@ export default function App() {
         maw={200}
       />
 
-      <Center>
+      
       <NumberInput
         hideControls
         // withAsterisk
@@ -100,18 +112,18 @@ export default function App() {
         mx="auto"
         maw={200}
       />
-      </Center>
+      
 
-      <Space h="md"/>
+      {/* <Space h="md"/> */}
 
-      <Center>
+      
         <Button 
           onClick={open} 
           variant="gradient" 
           gradient={{ from: 'indigo', to: 'cyan' }}>
           Calculate
           </Button>
-      </Center>
+      </Flex>
 
       <Modal 
         opened={opened} 
