@@ -50,13 +50,13 @@ export default function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
       
-      <Space h="sm" />
+      <Space h="md" />
       <Title 
       align="center"
       fz="lg"
       fw={700}
       >Long Service Payment Calculator</Title>
-      <Divider my="sm" />
+      <Divider my="md" />
 
       <Flex
         mih={50}
@@ -119,6 +119,7 @@ export default function App() {
       
         <Button 
           onClick={open} 
+          mx="auto"
           variant="gradient" 
           gradient={{ from: 'indigo', to: 'cyan' }}>
           Calculate
