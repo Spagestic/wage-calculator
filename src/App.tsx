@@ -2,7 +2,7 @@
 // import './App.css';
 import React, {useState, useEffect} from 'react';
 import { MantineProvider, 
-         Title, Space, Center, Divider,
+         Title, Space, Divider,
          NumberInput, Button, Flex,
          Modal, Group
         } from '@mantine/core';
@@ -77,7 +77,7 @@ export default function App() {
         value={startDate}
         onChange={setStartDate}
         mx="auto"
-        maw={200}
+        miw={250}
       />
 
       <DatePickerInput
@@ -90,7 +90,7 @@ export default function App() {
         value={endDate}
         onChange={setEndDate}
         mx="auto"
-        maw={200}
+        miw={250}
       />
 
       
@@ -110,7 +110,7 @@ export default function App() {
             : '0'
         }
         mx="auto"
-        maw={200}
+        miw={250}
       />
       
 
