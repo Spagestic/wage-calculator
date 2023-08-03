@@ -113,13 +113,10 @@ export default function App() {
         miw={250}
       />
       
-
-      {/* <Space h="md"/> */}
-
-      
         <Button 
+          m="auto"
+          size="md"
           onClick={open} 
-          mx="auto"
           variant="gradient" 
           gradient={{ from: 'indigo', to: 'cyan' }}>
           Calculate
