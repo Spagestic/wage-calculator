@@ -41,7 +41,7 @@ export default function App() {
       End Working Date = ${endDate ? endDate.toLocaleDateString() : null}
       Monthly Wage = ${wage} HKD
 
-      Fomula = ${wage} * (2/3) * ${yearsOfService.toFixed(2)}
+      Formula = ${wage} * (2/3) * ${yearsOfService.toFixed(2)}
     `;
     doc.text(text, 10, 10);
     doc.save('Calculations.pdf');
@@ -145,7 +145,7 @@ export default function App() {
           <Space />
           Monthly Wage = ${wage} HKD
           <hr />
-          Fomula = ${wage} * (2/3) * {yearsOfService.toFixed(2)}
+          Formula = ${wage} * (2/3) * {yearsOfService.toFixed(2)}
           <Space h="sm" />
           <Group position='center'>
               <Button 
