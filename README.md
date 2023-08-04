@@ -1,3 +1,3 @@
-# Mantine create-react-app template
+# Wage Calculator
 
-This template is archived. It is not recommeded to use create-react-app. Use [Vite](https://mantine.dev/guides/vite/) instead.
+This react app was developed to calculate Statutory Employment Entitlements for domestic helpers in Hong Kong. 
