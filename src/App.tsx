@@ -2,7 +2,7 @@
 // import './App.css';
 import React, {useState, useEffect} from 'react';
 import { MantineProvider, 
-         Title, Space, Divider,
+         Title, Space, Divider, Center,
          NumberInput, Button, Flex,
          Modal, Group
         } from '@mantine/core';
@@ -58,8 +58,10 @@ export default function App() {
       >Long Service Payment Calculator</Title>
       <Divider my="md" />
 
+      <Center>
       <Flex
         mih={50}
+        maw={250}
         // bg="rgba(0, 0, 0, .3)"
         gap="lg"
         justify="center"
@@ -125,7 +127,7 @@ export default function App() {
           gradient={{ from: 'indigo', to: 'cyan' }}>
           Calculate
           </Button>
-      </Flex>
+      </Flex></Center>
 
       <Modal 
         opened={opened} 
