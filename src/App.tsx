@@ -1,5 +1,10 @@
+// App.tsx
 import React, { useState, useEffect } from 'react';
-import { MantineProvider, Title, Space, Divider, Center, NumberInput, Button, Flex, Modal, Group } from '@mantine/core';
+import { MantineProvider, 
+         Title, Space, Divider, Center,
+         NumberInput, Button, Flex,
+         Modal, Group
+        } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
@@ -11,19 +16,23 @@ export default function App() {
   const [wage, setWage] = useState<number | ''>(0);
   const [opened, { open, close }] = useDisclosure(false);
 
+  // State variable for the years of service
   const [yearsOfService, setYearsOfService] = useState<number | 0>(0);
+
+  // Calculate years of service when the start or end date changes
   useEffect(() => {
     if (startDate && endDate) {
-      const msPerYear = 1000 * 60 * 60 * 24 * 365.25;
-      const serviceInMs = new Date(endDate).getTime() - new Date(startDate).getTime();
-      setYearsOfService(serviceInMs / msPerYear);
+      const msPerYear = 1000 * 60 * 60 * 24 * 365.25; // Jumlah milidetik dalam setahun, termasuk tahun kabisat
+      const serviceInMs = new Date(endDate).getTime() - new Date(startDate).getTime();  // Selisih dalam milidetik antara tanggal selesai dan tanggal mulai
+      setYearsOfService(serviceInMs / msPerYear);  // Tahun decimal masa kerja
     }
   }, [startDate, endDate]);
 
+  // Function to generate PDF
   const printPDF = () => {
     const doc = new jsPDF();
     const text = `
-      Jumlah Pembayaran = ${((Number(wage) * 2) / 3 * yearsOfService).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} HKD
+      Total Pembayaran = ${((Number(wage) * 2) / 3 * yearsOfService).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} HKD
       Masa Kerja = ${yearsOfService.toFixed(2)} tahun
 
       Tanggal Mulai Bekerja = ${startDate ? startDate.toLocaleDateString() : null}
@@ -39,13 +48,23 @@ export default function App() {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
       <Space h="md" />
-      <Title align="center" fz="lg" fw={700}>
-        Kalkulator Pembayaran Pelayanan Jangka Panjang
-      </Title>
+      <Title 
+        align="center"
+        fz="lg"
+        fw={700}
+      >Kalkulator Tunjangan Masa Kerja</Title>
       <Divider my="md" />
 
       <Center>
-        <Flex mih={50} maw={250} gap="lg" justify="center" align="center" direction="column" wrap="wrap">
+        <Flex
+          mih={50}
+          maw={250}
+          gap="lg"
+          justify="center"
+          align="center"
+          direction="column"
+          wrap="wrap"
+        >
           <DatePickerInput
             icon={<IconCalendar size="1.1rem" stroke={1.5} />}
             clearable
@@ -76,7 +95,7 @@ export default function App() {
             hideControls
             label="Gaji Bulanan"
             icon="$"
-            placeholder="0"
+            placeholder='0'
             defaultValue={0}
             value={wage}
             onChange={setWage}
@@ -91,31 +110,49 @@ export default function App() {
             miw={250}
           />
 
-          <Button m="auto" size="md" radius="md" onClick={open} variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
+          <Button 
+            m="auto"
+            size="md"
+            radius="md"
+            onClick={open} 
+            variant="gradient" 
+            gradient={{ from: 'indigo', to: 'cyan' }}>
             Hitung
           </Button>
         </Flex>
       </Center>
 
-      <Modal opened={opened} onClose={close} title="Perhitungan" radius="md" centered>
-        Jumlah Pembayaran = ${((Number(wage) * 2) / 3 * yearsOfService).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} HKD
-        <Space />
-        Masa Kerja = {yearsOfService.toFixed(2)} tahun
-        <hr />
-        Tanggal Mulai Bekerja = {startDate ? startDate.toLocaleDateString() : null}
-        <Space />
-        Tanggal Selesai Bekerja = {endDate ? endDate.toLocaleDateString() : null}
-        <Space />
-        Gaji Bulanan = ${wage} HKD
-        <hr />
-        Rumus = ${wage} * (2/3) * {yearsOfService.toFixed(2)}
-        <Space h="sm" />
-        <Group position="center">
-          <Button m="auto" size="md" radius="md" onClick={printPDF} variant="white" color="dark">
-            Cetak
-          </Button>
-        </Group>
+      <Modal 
+        opened={opened} 
+        onClose={close} 
+        title="Perhitungan" 
+        radius="md"
+        centered>
+          Total Pembayaran = ${((Number(wage) * 2) / 3 * yearsOfService).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} HKD
+          <Space/>
+          Masa Kerja = {yearsOfService.toFixed(2)} tahun
+          <hr/>
+          Tanggal Mulai Bekerja = {startDate ? startDate.toLocaleDateString() : null}
+          <Space/>
+          Tanggal Selesai Bekerja = {endDate ? endDate.toLocaleDateString() : null}
+          <Space />
+          Gaji Bulanan = ${wage} HKD
+          <hr />
+          Rumus = ${wage} * (2/3) * {yearsOfService.toFixed(2)}
+          <Space h="sm" />
+          <Group position='center'>
+              <Button 
+                m="auto"
+                size="md"
+                radius="md"
+                onClick={printPDF} 
+                variant="white" 
+                color="dark">
+                  Cetak
+              </Button>
+          </Group>
       </Modal>
+
     </MantineProvider>
   );
 }
