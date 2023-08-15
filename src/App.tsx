@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import {
   MantineProvider,
-  Title, Space, Divider, Center,
-  NumberInput, Button, Flex,
-  Modal, Group, Box
+  Title, Space, Divider,
+  NumberInput, Button,
+  Modal, Group, Box, Text
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { DatePickerInput } from '@mantine/dates';
@@ -51,20 +51,27 @@ export default function App() {
     <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'dark' }}>
 
       <Space h="md" />
+
       <Title
         align="left"
         size="h2"
         fw={700}
         m="xl"
+        mb="xs"
+        color="#E5E4E2"
       >Long Service Payment</Title>
-      <Title
+      <Text
         align="left"
-        size="h6"
-        fw={200}
+        size="sm"
+        weight={150}
         mt="xs"
         ml="xl"
         mb="xl"
-      >Calculate your long service payment based on the labor laws of Hong Kong </Title>
+        mx="xl"
+        color="#E5E4E2"
+      >
+        Calculate your long service payment based on the labor laws of Hong Kong
+      </Text>
       <Divider my="xl" />
       <Box
         sx={(theme) => ({
@@ -77,13 +84,16 @@ export default function App() {
 
         })}
       >
-        <Title
+        <Text
           align="left"
-          size="h4"
-          fw={500}
+          size="lg"
+          weight={250}
           mt="xs"
-          mb="xl"
-        >Tell us your work dates </Title>
+          mb="sm"
+          color="#D3D3D3"
+        >
+          Tell us your work dates
+        </Text>
         <DatePickerInput
           icon={<IconCalendar size="1.1rem" stroke={1.5} />}
           clearable
@@ -111,15 +121,16 @@ export default function App() {
           my="md"
           miw={250}
         />
-
-        <Title
+        <Text
           align="left"
-          size="h4"
-          fw={500}
+          size="lg"
+          weight={250}
           mt="xl"
           mb="sm"
-        >Tell us your last month's wage </Title>
-
+          color="#D3D3D3"
+        >
+          Tell us your last month's wage
+        </Text>
         <NumberInput
           hideControls
           // withAsterisk
