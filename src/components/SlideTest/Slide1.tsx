@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Box, Button, rem } from '@mantine/core';
-import { ResultBox } from './ResultBox';
+import { Slide2 } from './Slide2';
 // import css
 import './slide.css';
 
-export function Slider() {
+export function Slide1() {
   const [opened, setOpened] = useState(false); 
 
   const handleClose = () => {
@@ -41,7 +41,7 @@ export function Slider() {
         </Button>
       </Box>}
       
-      {opened && <ResultBox onClose={handleClose} />}
+      {opened && <Slide2 onClose={handleClose} />}
       
     </div>
   );

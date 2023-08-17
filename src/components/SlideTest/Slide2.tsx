@@ -6,7 +6,7 @@ type ResultBoxProps = {
     onClose: () => void;
   };
 
-export function ResultBox({ onClose }: ResultBoxProps) {
+export function Slide2({ onClose }: ResultBoxProps) {
     const handleBack = () => {
         onClose();
       };

@@ -1,7 +1,7 @@
 // App.tsx
 import { MantineProvider } from '@mantine/core';
 import { Header } from './components/Header';
-// import { Slider } from './components/slideTest/Slider';
+// import { Slide1 } from './components/SlideTest/Slide1';
 import InputBox from './components/InputBox';
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
     theme={{ colorScheme: 'dark' }}>
         <Header />
         <InputBox />
-        {/* <Slider /> */}
+        {/* <Slide1 /> */}
     </MantineProvider>
   );
 }
