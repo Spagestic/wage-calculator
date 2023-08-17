@@ -1,7 +1,7 @@
 // App.tsx
 import { MantineProvider } from '@mantine/core';
 import { Header } from './components/Header';
-// import { Slider } from './components/Slider';
+// import { Slider } from './components/slideTest/Slider';
 import InputBox from './components/InputBox';
 
 export default function App() {
