@@ -6,7 +6,7 @@ import {
 import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
 import Payment from './Payment';
-import './SlideTest/slide.css';
+import { motion } from 'framer-motion';
 
 export default function Input() {
     const [startDate, setStartDate] = useState<Date | null>(null);
@@ -34,7 +34,12 @@ export default function Input() {
   }, [startDate, endDate]);
 
   return (
-    <div className={`slider ${opened ? 'slider-open' : 'slider-closed'}`}>
+    <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+    >
         {!opened && 
         <Box
         p = "xl"
@@ -113,16 +118,20 @@ export default function Input() {
                 miw={250}
             />
 
-            <Button
-                fullWidth
-                m="auto"
-                size="md"
-                radius="md"
-                onClick={handleOpen}
-                variant="gradient"
-                gradient={{ from: 'indigo', to: 'cyan' }}>
-                Calculate my payment
-            </Button>
+            <motion.div
+            whileTap={{ scale: 0.9 }}
+            >
+                <Button
+                    fullWidth
+                    m="auto"
+                    size="md"
+                    radius="md"
+                    onClick={handleOpen}
+                    variant="gradient"
+                    gradient={{ from: 'indigo', to: 'cyan' }}>
+                    Calculate my payment
+                </Button>
+            </motion.div>
             </Box>
             }
 
@@ -134,6 +143,6 @@ export default function Input() {
         startDate={startDate} 
         endDate={endDate} />
             }  
-    </div>
+    </motion.div>
   );
 };

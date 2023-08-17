@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Box, Button, rem } from '@mantine/core';
 import { Slide2 } from './Slide2';
 // import css
-import './slide.css';
+// import './slide.css';
+import { motion } from 'framer-motion';
 
 export function Slide1() {
   const [opened, setOpened] = useState(false); 
@@ -16,7 +17,13 @@ export function Slide1() {
   };
 
   return (
-    <div className={`slider ${opened ? 'slider-open' : 'slider-closed'}`}>
+    <motion.div 
+    className={`slider ${opened ? 'slider-open' : 'slider-closed'}`}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ type: "spring", stiffness: 200, duration: 0.3 }}
+    >
       {!opened && 
       <Box
       h={rem(400)}
@@ -29,20 +36,25 @@ export function Slide1() {
         borderRadius: theme.radius.md,
       })}
       >
-        <Button 
-        fullWidth
-        m="auto"
-        size="md"
-        radius="md"
-        variant="gradient"
-        gradient={{ from: 'indigo', to: 'cyan' }}
-        onClick={handleOpen}>
-          Show
-        </Button>
+        <motion.div
+        whileTap={{ scale: 0.9 }}
+        transition={{ ease: "easeOut", duration: 0.3 }}
+        >
+          <Button 
+          fullWidth
+          m="auto"
+          size="md"
+          radius="md"
+          variant="gradient"
+          gradient={{ from: 'indigo', to: 'cyan' }}
+          onClick={handleOpen}>
+            Show
+          </Button>
+        </motion.div>
       </Box>}
       
       {opened && <Slide2 onClose={handleClose} />}
       
-    </div>
+    </motion.div>
   );
 }

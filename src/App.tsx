@@ -13,6 +13,7 @@ export default function App() {
     theme={{ colorScheme: 'dark' }}>
         <Header />
         <Input />
+        {/* <Slide1 /> */}
     </MantineProvider>
   );
 }

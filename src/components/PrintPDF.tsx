@@ -28,17 +28,17 @@ const PrintPDF: React.FC<PrintPDFProps> = ({ wage, yearsOfService, startDate, en
   };
 
   return (
-    <Button 
-    fullWidth
-    m="auto"
-    size="md"
-    radius="md"
-    variant="gradient"
-    gradient={{ from: 'indigo', to: 'cyan' }}
-    onClick={printPDF}
-    >
-        Print
-    </Button>
+        <Button 
+        fullWidth
+        m="auto"
+        size="md"
+        radius="md"
+        variant="gradient"
+        gradient={{ from: 'indigo', to: 'cyan' }}
+        onClick={printPDF}
+        >
+          Print
+        </Button>
   );
 };
 

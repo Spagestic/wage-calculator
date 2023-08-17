@@ -1,5 +1,6 @@
 import { Box, Space, Group, Button} from '@mantine/core';
 import PrintPDF from './PrintPDF';
+import { motion } from 'framer-motion';
 
 interface PaymentProps {
   onClose: () => void;
@@ -16,7 +17,12 @@ export default function Payment(props: PaymentProps) {
       };
 
     return (
-        <div className="result-box">
+        <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5}}
+        >
             <Box
             p = "xl"
             m = "lg"
@@ -49,19 +55,24 @@ export default function Payment(props: PaymentProps) {
                 endDate={endDate}
                 />
             </Group>
-            <Button
-            fullWidth
-            m="auto"
-            mt="sm"
-            size="md"
-            radius="md"
-            variant="white"
-            color="dark"
-            onClick={handleBack}
+
+            <motion.div
+            whileTap={{ scale: 0.9 }}
             >
-                Calculate Again
-            </Button>
+                <Button
+                fullWidth
+                m="auto"
+                mt="sm"
+                size="md"
+                radius="md"
+                variant="white"
+                color="dark"
+                onClick={handleBack}
+                >
+                    Calculate Again
+                </Button>
+            </motion.div>
             </Box>
-        </div>
+        </motion.div>
     )
 }
