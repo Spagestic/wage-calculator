@@ -3,6 +3,7 @@ import { MantineProvider } from '@mantine/core';
 import { Header } from './components/Header';
 // import { Slider } from './components/Slider';
 import InputBox from './components/InputBox';
+import ResultBox from './components/ResultBox';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
     theme={{ colorScheme: 'dark' }}>
         <Header />
         <InputBox />
+        {/* <ResultBox /> */}
         {/* <Slider /> */}
     </MantineProvider>
   );

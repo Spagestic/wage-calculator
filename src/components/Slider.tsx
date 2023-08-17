@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Transition, Paper, Button, rem } from '@mantine/core';
+import { Transition, Paper, Button, rem, Text, Box, SimpleGrid, Divider } from '@mantine/core';
 import { useClickOutside } from '@mantine/hooks';
 
 const scaleY = {
