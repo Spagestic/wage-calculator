@@ -33,8 +33,8 @@ const PrintPDF: React.FC<PrintPDFProps> = ({ wage, yearsOfService, startDate, en
     m="auto"
     size="md"
     radius="md"
-    variant="white"
-    color="dark"
+    variant="gradient"
+    gradient={{ from: 'indigo', to: 'cyan' }}
     onClick={printPDF}
     >
         Print
