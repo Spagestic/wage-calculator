@@ -20,7 +20,7 @@ export function Slide1() {
       {!opened && 
       <Box
       h={rem(400)}
-      bg={"teal"}
+      bg={"gray"}
       p = "xl"
       m = "lg"
       mt = "xl"
