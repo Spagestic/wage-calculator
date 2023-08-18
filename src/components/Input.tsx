@@ -35,9 +35,9 @@ export default function Input() {
 
   return (
     <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
+    initial={{ opacity: 0, y: 100 }}
+    animate={{ opacity: 1,  y: 0 }}
+    exit={{ opacity: 0, y: 100 }}
     transition={{ duration: 0.5 }}
     >
         {!opened && 
@@ -119,7 +119,7 @@ export default function Input() {
             />
 
             <motion.div
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.8 }}
             >
                 <Button
                     fullWidth
