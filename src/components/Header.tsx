@@ -5,7 +5,7 @@ export function Header() {
         <>
             <Title
             align="left"
-            size="h3"
+            size="h2"
             fw={700}
             m="xl"
             mb="xs"
