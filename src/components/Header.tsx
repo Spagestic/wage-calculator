@@ -5,13 +5,15 @@ export function Header() {
         <>
             <Title
             align="left"
-            size="h2"
+            size="h3"
             fw={700}
             m="xl"
             mb="xs"
             color="#E5E4E2"
             >
-                Long Service Payment</Title>
+                Long Service Payment
+            </Title>
+
             <Text
             align="left"
             size="sm"

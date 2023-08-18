@@ -1,15 +1,14 @@
 // InputBox.tsx
 import { useState, useEffect } from 'react';
 import {
-  NumberInput, Button, Space,
-  Box, Text, Modal, Group, 
+  NumberInput, Button, Box, Text,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
-import PrintPDF from './PrintPDF';
+import PaymentModal from './PaymentModal';
 
-export function InputBox() {
+export default function InputBox() {
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [wage, setWage] = useState<number | ''>(0);
@@ -29,12 +28,12 @@ export function InputBox() {
   return (
     <>
     <Box
+    p = "xl"
+    m = "lg"
+    mt = "xl"
         sx={(theme) => ({
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
-          padding: theme.spacing.xl,
           borderRadius: theme.radius.md,
-          margin: theme.spacing.lg,
-          mt: theme.spacing.xl,
         })}
       >
         <Text
@@ -117,34 +116,14 @@ export function InputBox() {
         </Button>
       </Box>
 
-      <Modal
+      <PaymentModal
         opened={opened}
         onClose={close}
-        title="Calculations"
-        radius="md"
-        centered>
-        Total Payment = ${((Number(wage) * 2) / 3 * yearsOfService).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} HKD
-        <Space />
-        Years of Service = {yearsOfService.toFixed(2)} years
-        <hr />
-        Start Working Date = {startDate ? startDate.toLocaleDateString() : null}
-        <Space />
-        End Working Date = {endDate ? endDate.toLocaleDateString() : null}
-        <Space />
-        Monthly Wage = ${wage} HKD
-        <hr />
-        Formula = ${wage} * (2/3) * {yearsOfService.toFixed(2)}
-        <Space h="sm" />
-        <Group position='center'>
-          <PrintPDF 
-          wage={wage} 
-          yearsOfService={yearsOfService} 
-          startDate={startDate} 
-          endDate={endDate} />
-        </Group>
-      </Modal>
+        wage={wage}
+        yearsOfService={yearsOfService}
+        startDate={startDate}
+        endDate={endDate}
+      />
       </>
   );
 };
-
-export default InputBox;
