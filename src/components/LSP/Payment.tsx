@@ -95,7 +95,7 @@ export default function Payment(props: PaymentProps) {
                 </Group>
 
             <motion.div
-            whileTap={{ scale: 0.8 }}
+            whileTap={{ scale: 0.9 }}
             >
                 <Button
                 fullWidth

@@ -117,7 +117,7 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
             />
 
             <motion.div
-            whileTap={{ scale: 0.8 }}
+            whileTap={{ scale: 0.9 }}
             >
                 <Button
                     fullWidth
