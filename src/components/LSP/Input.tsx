@@ -8,19 +8,16 @@ import { IconCalendar } from '@tabler/icons-react';
 import Payment from './Payment';
 import { motion } from 'framer-motion';
 
-export default function Input() {
+interface Props {
+    isVisible: boolean, 
+    handleOpen: () => void, 
+    handleClose: () => void,
+  }
+
+export default function Input({isVisible, handleOpen, handleClose}: Props) {
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [wage, setWage] = useState<number | ''>(0);
-    const [opened, setOpened] = useState(false); 
-
-    const handleClose = () => {
-        setOpened(false);
-      };
-    
-      const handleOpen = () => {
-        setOpened(true);
-      };
 
      // Create a state variable for the years of service
     const [yearsOfService, setYearsOfService] = useState<number | 0>(0);
@@ -34,13 +31,14 @@ export default function Input() {
   }, [startDate, endDate]);
 
   return (
-    <motion.div 
+    <>
+    {!isVisible && <motion.div 
     initial={{ opacity: 0, y: 100 }}
     animate={{ opacity: 1,  y: 0 }}
     exit={{ opacity: 0, y: 100 }}
-    transition={{ duration: 0.5 }}
+    transition={{ duration: 0.3 }}
     >
-        {!opened && 
+        
         <Box
         p = "xl"
         m = "lg"
@@ -133,9 +131,11 @@ export default function Input() {
                 </Button>
             </motion.div>
             </Box>
-            }
+            
 
-        {opened && 
+    </motion.div>}
+    
+    {isVisible && 
         <Payment 
         onClose={handleClose} 
         wage={wage} 
@@ -143,6 +143,6 @@ export default function Input() {
         startDate={startDate} 
         endDate={endDate} />
             }  
-    </motion.div>
+    </>
   );
 };

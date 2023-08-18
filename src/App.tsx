@@ -1,8 +1,8 @@
 // App.tsx
 import { MantineProvider } from '@mantine/core';
-import { Header } from './components/Header';
-import Input from './components/Input';
 // import SlideTest from './components/SlideTest/Slides';
+import { Header } from './components/Header';
+import  LSP from './components/LSP/LSP';
 
 export default function App() {
   return (
@@ -11,8 +11,7 @@ export default function App() {
     withNormalizeCSS 
     theme={{ colorScheme: 'dark' }}>
         <Header />
-        <Input />
-        {/* <SlideTest />       */}
+        <LSP />
     </MantineProvider>
   );
 }
