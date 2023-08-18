@@ -14,11 +14,10 @@ export function Slide2({ onClose }: ResultBoxProps) {
 
     return (
         <motion.div 
-        className="result-box"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ type: "spring", stiffness: 200, duration: 0.3 }}
+        transition={{ duration: 0.3 }}
         >
             <Box
             h={rem(400)}
