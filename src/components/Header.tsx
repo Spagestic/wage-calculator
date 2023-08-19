@@ -27,7 +27,7 @@ export function Header() {
             
             <Text
             align="left"
-            size="sm"
+            size="md"
             weight={150}
             mt="xs"
             ml="xl"
@@ -36,7 +36,6 @@ export function Header() {
             sx={(theme) => ({
                 color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9],
             })}
-            // color="#E5E4E2"
             >
                 Calculate your long service payment based on the labor laws of Hong Kong
             </Text>
