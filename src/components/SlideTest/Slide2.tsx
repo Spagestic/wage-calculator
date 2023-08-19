@@ -1,24 +1,37 @@
-// ResultBox.tsx
+// Slide2.tsx
 import { Box, Button, rem } from '@mantine/core';
-// import './slide.css';
-import { motion } from 'framer-motion';
+import { motion} from 'framer-motion';
 
 type ResultBoxProps = {
+    isVisible: boolean;
     onClose: () => void;
   };
 
-export function Slide2({ onClose }: ResultBoxProps) {
+export function Slide2({ isVisible, onClose }: ResultBoxProps) {
     const handleBack = () => {
         onClose();
       };
 
     return (
-        <motion.div 
-        className="result-box"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ type: "spring", stiffness: 200, duration: 0.3 }}
+      <>
+        {isVisible && <motion.div 
+        key={"slide2"}
+        initial={{ 
+          opacity: 0,
+          y: 100,
+        }}
+        animate={{ 
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{ 
+          opacity: 0,
+          y: 100,
+        }}
+        transition={{ 
+          duration: 0.3, 
+          // delay: 0.6 
+        }}
         >
             <Box
             h={rem(400)}
@@ -45,6 +58,7 @@ export function Slide2({ onClose }: ResultBoxProps) {
                 >Back</Button>
               </motion.div>
             </Box>
-        </motion.div>
+        </motion.div>}
+      </>
     )
 }
