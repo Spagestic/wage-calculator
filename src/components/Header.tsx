@@ -28,7 +28,7 @@ export function Header() {
             <Text
             align="left"
             size="md"
-            weight={150}
+            weight={330}
             mt="xs"
             ml="xl"
             mb="xl"
