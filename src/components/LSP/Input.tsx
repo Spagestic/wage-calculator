@@ -44,7 +44,7 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
         m = "lg"
         mt = "xl"
             sx={(theme) => ({
-                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0],
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
                 borderRadius: theme.radius.md,
             })}
             >
@@ -54,7 +54,9 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
                 weight={250}
                 mt="xs"
                 mb="sm"
-                color="#D3D3D3"
+                sx={(theme) => ({
+                    color: theme.colorScheme === 'dark' ? theme.colors.gray[4] : theme.colors.dark[5],
+                })}
             >
                 Tell us your work dates
             </Text>
@@ -91,7 +93,9 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
                 weight={250}
                 mt="xl"
                 mb="sm"
-                color="#D3D3D3"
+                sx={(theme) => ({
+                    color: theme.colorScheme === 'dark' ? theme.colors.gray[4] : theme.colors.dark[5],
+                })}
             >
                 Tell us your last month's wage
             </Text>

@@ -2,6 +2,9 @@
 import React from 'react';
 import jsPDF from 'jspdf';
 import { Button } from '@mantine/core';
+// import and initialize ReactGA for user event tracking
+import ReactGA from "react-ga4";
+ReactGA.initialize("G-1LE47Z6NV9");
 
 interface PrintPDFProps {
   wage: number | '';
@@ -25,6 +28,11 @@ const PrintPDF: React.FC<PrintPDFProps> = ({ wage, yearsOfService, startDate, en
     `;
     doc.text(text, 10, 10);
     doc.save('Calculations.pdf');
+     //use ReactGA to track the user event
+    ReactGA.event({
+      category: "long_service_payment",
+      action: "click_save_pdf",
+    });
   };
 
   return (
