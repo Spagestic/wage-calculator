@@ -7,7 +7,6 @@ import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
 import Payment from './Payment';
 import { motion } from 'framer-motion';
-import { hover } from '@testing-library/user-event/dist/types/convenience';
 
 interface Props {
     isVisible: boolean, 
@@ -48,7 +47,7 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
         }
       }, [startDate, endDate]);
 
-    const canCalculatePayment = yearsOfService >= MIN_YEARS_OF_SERVICE;
+    const canCalculatePayment = (yearsOfService >= MIN_YEARS_OF_SERVICE) && (wage !== ('' || 0));
 
   return (
     <>
@@ -124,8 +123,10 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
                 mb="xl"
                 miw={250}
             />
-            <Tooltip withArrow
-            label={`Requires ${MIN_YEARS_OF_SERVICE} years of work for long service payment!`}
+            <Tooltip withArrow multiline
+            label={!(yearsOfService >= MIN_YEARS_OF_SERVICE) 
+                    ? `Requires ${MIN_YEARS_OF_SERVICE} years of work for long service payment!` 
+                    : "Monthly Wage should not be 0!"}
             disabled={canCalculatePayment}
             events={{ hover: true, focus: true, touch: true }}
             >
