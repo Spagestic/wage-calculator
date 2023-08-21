@@ -7,6 +7,7 @@ import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
 import Payment from './Payment';
 import { motion } from 'framer-motion';
+import { hover } from '@testing-library/user-event/dist/types/convenience';
 
 interface Props {
     isVisible: boolean, 
@@ -126,6 +127,7 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
             <Tooltip withArrow
             label={`Requires ${MIN_YEARS_OF_SERVICE} years of work for long service payment!`}
             disabled={canCalculatePayment}
+            events={{ hover: true, focus: true, touch: true }}
             >
                 <motion.div
                 whileTap={{ scale: 0.9 }}
