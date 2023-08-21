@@ -7,6 +7,7 @@ import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
 import Payment from './Payment';
 import WorkDateInput from './WorkDateInput';
+import MonthlyWageInput from './MonthlyWageInput';
 import { motion } from 'framer-motion';
 
 interface Props {
@@ -89,25 +90,9 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
             >
                 Tell us your last month's wage
             </Text>
-            <NumberInput
-                hideControls
-                // withAsterisk
-                label="Monthly Wage"
-                icon="$"
-                placeholder='0'
-                defaultValue={0}
-                value={wage}
-                onChange={setWage}
-                parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-                formatter={(value) =>
-                !Number.isNaN(parseFloat(value))
-                    ? `${value}`.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
-                    : '0'
-                }
-                size="sm"
-                mt="xs"
-                mb="xl"
-                miw={250}
+            <MonthlyWageInput
+              value={wage}
+              onChange={setWage}
             />
             <Tooltip withArrow multiline
             label={!(yearsOfService >= MIN_YEARS_OF_SERVICE) 
