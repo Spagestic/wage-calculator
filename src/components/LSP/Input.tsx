@@ -1,7 +1,7 @@
 // InputBox.tsx
 import { useState, useEffect } from 'react';
 import {
-  NumberInput, Button, Box, Text,
+  NumberInput, Button, Box, Text, Tooltip,
 } from '@mantine/core';
 import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
@@ -14,25 +14,45 @@ interface Props {
     handleClose: () => void,
   }
 
+const MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.25;
+const MIN_YEARS_OF_SERVICE = 5;
+  
+function WorkDateInput({ label, value, onChange }: any) {
+return (
+    <DatePickerInput
+    icon={<IconCalendar size="1.1rem" stroke={1.5} />}
+    clearable
+    dropdownType="modal"
+    label={label}
+    placeholder="Pick date"
+    value={value}
+    onChange={onChange}
+    size="sm"
+    miw={250}
+    my="md"
+    />
+);
+}
+
 export default function Input({isVisible, handleOpen, handleClose}: Props) {
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [wage, setWage] = useState<number | ''>(0);
-
-     // Create a state variable for the years of service
     const [yearsOfService, setYearsOfService] = useState<number | 0>(0);
-    // Calculate years of service when the start or end date changes
+
     useEffect(() => {
         if (startDate && endDate) {
-        const msPerYear = 1000 * 60 * 60 * 24 * 365.25; // The number of milliseconds in a year, accounting for leap years
-        const serviceInMs = new Date(endDate).getTime() - new Date(startDate).getTime();  // The difference in milliseconds between the end date and start date
-        setYearsOfService(serviceInMs / msPerYear);  // The decimal years of service
+          const serviceInMs = endDate.getTime() - startDate.getTime();
+          setYearsOfService(serviceInMs / MS_PER_YEAR);
         }
-  }, [startDate, endDate]);
+      }, [startDate, endDate]);
+
+    const canCalculatePayment = yearsOfService >= MIN_YEARS_OF_SERVICE;
 
   return (
     <>
-    {!isVisible && <motion.div 
+    {!isVisible && 
+    <motion.div 
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
@@ -60,33 +80,17 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
             >
                 Tell us your work dates
             </Text>
-            <DatePickerInput
-                icon={<IconCalendar size="1.1rem" stroke={1.5} />}
-                clearable
-                // withAsterisk
-                dropdownType="modal"
-                label="Start working date"
-                placeholder="Pick date"
-                value={startDate}
-                onChange={setStartDate}
-                size="sm"
-                miw={250}
-                my="md"
-            />
 
-            <DatePickerInput
-                icon={<IconCalendar size="1.1rem" stroke={1.5} />}
-                clearable
-                // withAsterisk
-                dropdownType="modal"
-                label="End working date"
-                placeholder="Pick date"
-                value={endDate}
-                onChange={setEndDate}
-                size="sm"
-                my="md"
-                miw={250}
-            />
+            <WorkDateInput 
+            label="Start working date" 
+            value={startDate} 
+            onChange={setStartDate} />
+
+            <WorkDateInput 
+            label="End working date" 
+            value={endDate} 
+            onChange={setEndDate} />
+
             <Text
                 align="left"
                 size="lg"
@@ -119,21 +123,27 @@ export default function Input({isVisible, handleOpen, handleClose}: Props) {
                 mb="xl"
                 miw={250}
             />
-
-            <motion.div
-            whileTap={{ scale: 0.9 }}
+            <Tooltip withArrow
+            label={`Requires ${MIN_YEARS_OF_SERVICE} years of work for long service payment!`}
+            disabled={canCalculatePayment}
             >
-                <Button
-                    fullWidth
-                    m="auto"
-                    size="md"
-                    radius="md"
-                    onClick={handleOpen}
-                    variant="gradient"
-                    gradient={{ from: 'indigo', to: 'cyan' }}>
-                    Calculate my payment
-                </Button>
-            </motion.div>
+                <motion.div
+                whileTap={{ scale: 0.9 }}
+                >
+                    <Button
+                        fullWidth
+                        m="auto"
+                        size="md"
+                        radius="md"
+                        onClick={handleOpen}
+                        variant="gradient"
+                        gradient={{ from: 'indigo', to: 'cyan' }}
+                        disabled={!canCalculatePayment}
+                        >
+                        Calculate my payment
+                    </Button>
+                </motion.div>
+            </Tooltip>
             </Box>
             
 
