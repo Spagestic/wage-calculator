@@ -6,15 +6,13 @@ import WorkDateInput from './WorkDateInput';
 import MonthlyWageInput from './MonthlyWageInput';
 import CalculateButton from './CalculateButton';
 import { motion } from 'framer-motion';
+import {MIN_YEARS_OF_SERVICE, MS_PER_YEAR } from '../../constants'
 
 interface Props {
     isVisible: boolean,
     handleOpen: () => void,
     handleClose: () => void,
 }
-
-const MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.25;
-const MIN_YEARS_OF_SERVICE = 5;
 
 export default function Input({ isVisible, handleOpen, handleClose }: Props) {
     const [startDate, setStartDate] = useState<Date | null>(null);
@@ -94,7 +92,6 @@ export default function Input({ isVisible, handleOpen, handleClose }: Props) {
                         <CalculateButton
                             onClick={handleOpen}
                             disabled={!canCalculatePayment}
-                            minYearsOfService={MIN_YEARS_OF_SERVICE}
                             yearsOfService={yearsOfService}
                         />
                     </Box>
