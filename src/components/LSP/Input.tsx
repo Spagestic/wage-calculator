@@ -6,6 +6,7 @@ import {
 import { DatePickerInput } from '@mantine/dates';
 import { IconCalendar } from '@tabler/icons-react';
 import Payment from './Payment';
+import WorkDateInput from './WorkDateInput';
 import { motion } from 'framer-motion';
 
 interface Props {
@@ -16,23 +17,6 @@ interface Props {
 
 const MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.25;
 const MIN_YEARS_OF_SERVICE = 5;
-  
-function WorkDateInput({ label, value, onChange }: any) {
-return (
-    <DatePickerInput
-    icon={<IconCalendar size="1.1rem" stroke={1.5} />}
-    clearable
-    dropdownType="modal"
-    label={label}
-    placeholder="Pick date"
-    value={value}
-    onChange={onChange}
-    size="sm"
-    miw={250}
-    my="md"
-    />
-);
-}
 
 export default function Input({isVisible, handleOpen, handleClose}: Props) {
     const [startDate, setStartDate] = useState<Date | null>(null);
