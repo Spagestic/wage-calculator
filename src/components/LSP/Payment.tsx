@@ -32,6 +32,8 @@ export default function Payment(props: PaymentProps) {
                 sx={(theme) => ({
                     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
                     borderRadius: theme.radius.md,
+                    // boxShadow: 'offset-x , offset-y , blur-radius , spread-radius , color' ,
+                    boxShadow: '0px 0px 0px 0px rgba(0, 0, 0, 0.2)', 
                 })}
             >
                 <Text
