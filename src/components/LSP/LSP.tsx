@@ -1,6 +1,6 @@
 // LSP.tsx
 import { useState } from 'react';
-import Input from './Input';
+import Input from './Input/Input';
 // import and initialize ReactGA for user tracking - Google Ananlytics
 import ReactGA from "react-ga4";
 ReactGA.initialize("G-1LE47Z6NV9");  

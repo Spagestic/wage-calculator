@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Tooltip } from '@mantine/core';
 import { motion } from 'framer-motion';
-import { MIN_YEARS_OF_SERVICE } from '../../constants';
+import { MIN_YEARS_OF_SERVICE } from '../../../constants';
 
 interface CalculateButtonProps {
   onClick: () => void;

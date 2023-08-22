@@ -1,12 +1,12 @@
 // Input.tsx
 import { useState, useEffect } from 'react';
 import {Box, Text} from '@mantine/core';
-import Payment from './Payment';
+import Payment from '../Payment/Payment';
 import WorkDateInput from './WorkDateInput';
 import MonthlyWageInput from './MonthlyWageInput';
 import CalculateButton from './CalculateButton';
 import { motion } from 'framer-motion';
-import {MIN_YEARS_OF_SERVICE, MS_PER_YEAR } from '../../constants'
+import {MIN_YEARS_OF_SERVICE, MS_PER_YEAR } from '../../../constants'
 
 interface Props {
     isVisible: boolean,

@@ -1,6 +1,6 @@
 // PaymentModal.tsx
 import { Modal, Space, Group } from '@mantine/core';
-import PrintPDF from '../LSP/PrintPDF';
+import PrintPDF from '../LSP/Payment/PrintPDF';
 
 interface PaymentModalProps {
   opened: boolean;
