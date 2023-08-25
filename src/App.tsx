@@ -1,6 +1,6 @@
 // App.tsx
 import { useState } from 'react';
-import { MantineProvider, ColorSchemeProvider, ColorScheme, Text } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider, ColorScheme} from '@mantine/core';
 // import SlideTest from './components/SlideTest/Slides';
 import { Header } from './components/Header';
 import  LSP from './components/LSP/LSP';
@@ -11,19 +11,19 @@ export default function App() {
 
 
   return (
-    <Text>hello world</Text>
-    // <ColorSchemeProvider 
-    //   colorScheme={colorScheme} 
-    //   toggleColorScheme={toggleColorScheme}
-    //   >
-    //     <MantineProvider 
-    //     withGlobalStyles 
-    //     withNormalizeCSS 
-    //     theme={{ colorScheme }}
-    //     >
-    //         <Header />
-    //         <LSP />
-    //     </MantineProvider>
-    //   </ColorSchemeProvider>
+    // <Text>hello world</Text>
+    <ColorSchemeProvider 
+      colorScheme={colorScheme} 
+      toggleColorScheme={toggleColorScheme}
+      >
+        <MantineProvider 
+        withGlobalStyles 
+        withNormalizeCSS 
+        theme={{ colorScheme }}
+        >
+            <Header />
+            <LSP />
+        </MantineProvider>
+      </ColorSchemeProvider>
   );
 }
