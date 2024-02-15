@@ -7,9 +7,16 @@ This application was designed to assist domestic helpers in Hong Kong by calcula
 ## Features
 * Simplified calculation of Long Service Payment for domestic helpers
 
-## Check out the Project
+## Usage
 
-[Project website](https://wagecal.netlify.app/)
+To use the Wage Calculator online:
+
+ 1. Go to [wagecal.netlify.app](https://wagecal.netlify.app/).
+ 2. Enter working duration
+ 3. Enter your monthly working hours.
+ 4. Review the Long Service Payment due
+ 5. Print the recipt as PDF
+
 
 ## Built with
 
