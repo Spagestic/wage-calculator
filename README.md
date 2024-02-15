@@ -2,7 +2,7 @@
 
 Welcome to the **Wage Calculator** repository! This application is designed to assist domestic helpers in Hong Kong by calculating their statutory employment entitlements.
 
-![Screenshot of Wage Calculator]([URL_TO_SCREENSHOT](https://github.com/Spagestic/wage-calculator/assets/20869942/9d44b311-76a9-4e95-afd0-bcab4977b75e))
+[URL_TO_SCREENSHOT](https://github.com/Spagestic/wage-calculator/assets/20869942/9d44b311-76a9-4e95-afd0-bcab4977b75e)
 
 ## Features
 
