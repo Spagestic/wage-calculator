@@ -1,3 +1,5 @@
+https://github.com/Spagestic/wage-calculator/assets/20869942/cdd2c775-ca13-4083-b25f-54aee091be16
+
 # Wage Calculator - Statutory Entitlements for Domestic Helpers
 
 Welcome to the **Wage Calculator** repository! This application is designed to assist domestic helpers in Hong Kong by calculating their statutory employment entitlements.
@@ -8,18 +10,16 @@ Welcome to the **Wage Calculator** repository! This application is designed to a
 * User-friendly interface powered by Mantine UI
 * Dynamic updates to reflect current legislation changes
 
-## Live Demo
+## Check out the Project
 
-Experience the ease of use and functionality of the Wage Calculator through our live demo:
-
-[View Live Demo](https://wagecal.netlify.app/)
+[Project website](https://wagecal.netlify.app/)
 
 ## Technology Stack
 
 This project is built using modern web technologies:
 
 - **React JS**: For building the user interface and managing state
-- **Mantine UI**: Providing a sleek and customizable UI library
+- **Mantine UI**: Providing a sleek and customizable UI Design
 
 ## Getting Started
 
