@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, Tooltip } from '@mantine/core';
-import { motion } from 'framer-motion';
-import { MIN_YEARS_OF_SERVICE } from '../../../constants';
+import React from "react";
+import { Button, Tooltip } from "@mantine/core";
+import { motion } from "framer-motion";
+import { MIN_YEARS_OF_SERVICE } from "../../../constants";
 
 interface CalculateButtonProps {
   onClick: () => void;
@@ -9,14 +9,20 @@ interface CalculateButtonProps {
   yearsOfService: number;
 }
 
-const CalculateButton: React.FC<CalculateButtonProps> = ({ onClick, disabled, yearsOfService }) => {
+const CalculateButton: React.FC<CalculateButtonProps> = ({
+  onClick,
+  disabled,
+  yearsOfService,
+}) => {
   return (
     <Tooltip
       withArrow
       multiline
       label={
-        !(yearsOfService >= MIN_YEARS_OF_SERVICE) 
-          ? `Requires ${MIN_YEARS_OF_SERVICE} years of work for long service payment!`
+        !(yearsOfService >= MIN_YEARS_OF_SERVICE)
+          ? `Your Years of Service is ${yearsOfService.toFixed(
+              2
+            )}. ${MIN_YEARS_OF_SERVICE} years of work is required for long service payment!`
           : "Monthly Wage should not be 0!"
       }
       disabled={!disabled}
@@ -30,7 +36,7 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({ onClick, disabled, ye
           radius="md"
           onClick={onClick}
           variant="gradient"
-          gradient={{ from: 'indigo', to: 'cyan' }}
+          gradient={{ from: "indigo", to: "cyan" }}
           disabled={disabled}
         >
           Calculate my payment
