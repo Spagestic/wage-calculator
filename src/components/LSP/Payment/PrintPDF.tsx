@@ -28,7 +28,7 @@ const PrintPDF: React.FC<PrintPDFProps> = ({
 
     // Calculate positions
     const startXDescription = margin;
-    const endXDescription = startXDescription + columnWidthDescription; // Correctly calculate the end position for the description column
+    // const endXDescription = startXDescription + columnWidthDescription;
     const startXValue = pageWidth - margin; // Start position for the value column, effectively aligning it to the right edge
 
     // Title
